@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'drawerNavigator.dart';
 
@@ -15,17 +16,6 @@ class _HomeState extends State<Home> {
 
   void initState() {
     lista.add('13:00 - Av Presidente Vargas n 1238');
-    lista.add('12:00 - Av Presidente Vargas n 1238');
-    lista.add('08:00 - Av Presidente Vargas n 1238');
-    lista.add('13:00 - Av Presidente Vargas n 1238');
-    lista.add('12:00 - Av Presidente Vargas n 1238');
-    lista.add('08:00 - Av Presidente Vargas n 1238');
-    lista.add('13:00 - Av Presidente Vargas n 1238');
-    lista.add('12:00 - Av Presidente Vargas n 1238');
-    lista.add('08:00 - Av Presidente Vargas n 1238');
-    lista.add('13:00 - Av Presidente Vargas n 1238');
-    lista.add('12:00 - Av Presidente Vargas n 1238');
-    lista.add('08:00 - Av Presidente Vargas n 1238');
     super.initState();
   }
   
@@ -63,7 +53,7 @@ class _HomeState extends State<Home> {
                       children: [
                         Icon(Icons.location_on),
                         Text(
-                          'Avenida Pres. Vargas N° 5276',
+                          '   Avenida Pres. Vargas N° 5276',
                           style: TextStyle(fontSize: 12),
                         ),
                       ],
@@ -71,9 +61,17 @@ class _HomeState extends State<Home> {
                   ),
                   Center(
                     child: ElevatedButton.icon(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          var hora = DateTime.now();
+
+                          lista.add( DateFormat("dd/MM/yyyy HH:mm").format(hora) + 'Avenida Pres. Vargas N° 5276');
+                        });
+
+                      },
                       icon: Icon(Icons.alarm),
                       label: Text('Registrar Ponto'),
+                      
                       style: ElevatedButton.styleFrom(
                           shadowColor: Colors.black,
                           primary: Theme.of(context).primaryColor,
@@ -103,8 +101,9 @@ class _HomeState extends State<Home> {
                       return ListTile(
                         title: Center(
                           child: Text(
+                            
                             lista[index],
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 10),
                           ),
                         ),
                       );
