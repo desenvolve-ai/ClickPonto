@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:workhours/Screens/relatorio.dart';
+import 'package:workhours/Screens/Relatorio/relatorio.dart';
 
-import 'drawerNavigator.dart';
-import 'home.dart';
+import '../Drawer/drawerNavigator.dart';
+import '../Home/home.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override

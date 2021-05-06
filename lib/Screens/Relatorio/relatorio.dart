@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'drawerNavigator.dart';
+import '../Drawer/drawerNavigator.dart';
 
 class Relatorio extends StatefulWidget {
   @override
