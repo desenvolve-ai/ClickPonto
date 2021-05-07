@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workhours/Screens/Ajuste/ajuste.dart';
 import 'package:workhours/Screens/Relatorio/relatorio.dart';
 
 import '../Drawer/drawerNavigator.dart';
@@ -13,7 +14,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex =0;
   List<Widget> _widgetOptions = <Widget>[
     Home(),
-    Relatorio(),
+    Ajuste(),
   ];
 
   void _onTap(int index){
@@ -36,14 +37,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(Icons.home),
               label: 'Home',
 
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              label: 'Relatórios',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.toc_outlined),
-              label: 'Ajustes',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.toc_outlined),

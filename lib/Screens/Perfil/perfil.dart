@@ -32,7 +32,7 @@ class _PerfilState extends State<Perfil> {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 40, bottom: 200 ),
+                  padding: const EdgeInsets.only(left: 40, bottom: 100 ),
                   child: Column(
                     children: [
                       TextField(
@@ -126,7 +126,7 @@ class _PerfilState extends State<Perfil> {
                      
                     style: ElevatedButton.styleFrom(
                       elevation: 20,
-                      minimumSize: Size(100, 50),
+                      minimumSize: Size(150, 50),
                         shadowColor: Colors.black,
                         primary: Theme.of(context).primaryColor,
                         shape: RoundedRectangleBorder(

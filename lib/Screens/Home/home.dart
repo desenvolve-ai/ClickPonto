@@ -13,11 +13,18 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    lista.add('13:00 - Av Presidente Vargas N° 1238');
+    lista.add('06/05/2021 13:00 - Av Presidente Vargas N° 1238');
+    lista.add('06/05/2021 13:00 - Av Presidente Vargas N° 1238');
+    lista.add('06/05/2021 13:00 - Av Presidente Vargas N° 1238');
+    lista.add('06/05/2021 13:00 - Av Presidente Vargas N° 1238');
+    lista.add('06/05/2021 13:00 - Av Presidente Vargas N° 1238');
+    lista.add('06/05/2021 13:00 - Av Presidente Vargas N° 1238');
+    lista.add('06/05/2021 13:00 - Av Presidente Vargas N° 1238');
     super.initState();
   }
 
-  Widget build(BuildContext context) {
+    Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text('Home')),
       drawer: MainDrawer(),
@@ -33,9 +40,10 @@ class _HomeState extends State<Home> {
                     child: Text(
                       'Banco de Horas',
                       style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
+                  SizedBox(height: size.height * 0.03),
                   Container(
                     child: Text(
                       '16:00hrs',
@@ -58,57 +66,63 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  Center(
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        var data = DateTime.now();
-                        showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                            title: Text('Confirmação de Registro'),
-                            content:
-                                Text('Deseja realmente registrar o ponto?'),
-                            actions: [
-                              TextButton(
-                                child: Text('Confirmar'),
-                                onPressed: () {
-                                  setState(() {
-                                    var data = DateTime.now();
+                  Center(                    
+                    child: Container(
+                      width: size.width * 0.4,
+                      height: size.height * 0.06,
+                      child: ElevatedButton.icon(                 
+                        onPressed: () {
+                          var data = DateTime.now();
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: Text('Confirmar Registro'),
+                              content:
+                                  Text('Deseja realmente registrar o ponto?'),
+                              actions: [
+                                TextButton(
+                                  child: Text('Confirmar'),
+                                  onPressed: () {
+                                    setState(() {
+                                      var data = DateTime.now();
 
-                                    lista.add(DateFormat("dd/MM/yyyy HH:mm")
-                                            .format(data) +
-                                        '      Avenida Pres. Vargas N° 5276');
-                                  });
+                                      lista.add(DateFormat("dd/MM/yyyy HH:mm")
+                                              .format(data) +
+                                          '      Avenida Pres. Vargas N° 5276');
+                                    });
 
-                                  Navigator.pop(context);
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(SnackBar(
-                                    content:
-                                        Text('Registro realizado com sucesso'),
-                                        duration: Duration(seconds: 2),
-                                        backgroundColor: Colors.green,
-                                  ));
-                                },
-                              ),
-                              TextButton(
-                                child: Text('Cancelar'),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                              ),
-                            ],
-                            elevation: 5,
-                          ),
-                        );
-                      },
-                      icon: Icon(Icons.alarm),
-                      label: Text('Registrar Ponto'),
-                      style: ElevatedButton.styleFrom(
-                          shadowColor: Colors.black,
-                          primary: Theme.of(context).primaryColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          )),
+                                    Navigator.pop(context);
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content:
+                                          Text('Registro realizado com sucesso'),
+                                          duration: Duration(seconds: 2),
+                                          backgroundColor: Colors.green,
+                                    ));
+                                  },
+                                ),
+                                TextButton(
+                                  child: Text('Cancelar'),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ],
+                              elevation: 5,
+                              backgroundColor: Color(0xFFF1E6FF) ,
+                            ),
+                          );
+                        },
+                        icon: Icon(Icons.alarm),
+                        label: Text('Registrar Ponto'),                                                                 
+                        style: ElevatedButton.styleFrom(                            
+                            shadowColor: Colors.black,                          
+                            primary: Theme.of(context).primaryColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(29),                            
+                            )),
+                        
+                      ),
                     ),
                   ),
                 ],
@@ -122,7 +136,7 @@ class _HomeState extends State<Home> {
                 children: [
                   Center(
                     child: Text(
-                      'útimas Marcações',
+                      'Ultimos Registros',
                       style:
                           TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                     ),
@@ -130,7 +144,7 @@ class _HomeState extends State<Home> {
                   SizedBox(height: 20),
                   Container(
                     height: MediaQuery.of(context).size.height * 0.50,
-                    width: 300,
+                    width: MediaQuery.of(context).size.width * 0.80,
                     child: ListView.separated(
                       itemBuilder: (context, index) {
                         return ListTile(

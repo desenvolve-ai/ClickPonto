@@ -57,16 +57,16 @@ class MainDrawer extends StatelessWidget {
                    Navigator.pushNamed(context, '/perfil');
                 },
           ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text(
-              'Configurações',
-              style: TextStyle(
-                fontSize: 18,
-                ),
-                ),
-                onTap: null,
-          ),
+          // ListTile(
+          //   leading: Icon(Icons.settings),
+          //   title: Text(
+          //     'Configurações',
+          //     style: TextStyle(
+          //       fontSize: 18,
+          //       ),
+          //       ),
+          //       onTap: null,
+          // ),
            ListTile(
             leading: Icon(Icons.book),
             title: Text(
