@@ -11,8 +11,20 @@ class _PerfilState extends State<Perfil> {
     return Scaffold(
       body: Container(
         child: Column(children: [
-          //Container(child: ,),
-          //Container(child: ,),
+          Center(child: 
+            TextField(
+        onChanged: null,
+        cursorColor: null,
+        decoration: InputDecoration(
+          icon: Icon(
+            Icons.alarm,
+            color: Colors.black,
+          ),
+          hintText: 'hintText',
+          border: InputBorder.none,
+        ),
+      ),
+      ),          
         ],),
       ),
 
