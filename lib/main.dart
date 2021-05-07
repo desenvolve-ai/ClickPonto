@@ -8,7 +8,7 @@ import 'Screens/Sobre/sobre.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: 'Navigator',
+    title: 'ClickPonto',
     home: BottomNavBar(),
     theme: ThemeData(
       primaryColor: Color.fromRGBO(111, 53, 165, 1),

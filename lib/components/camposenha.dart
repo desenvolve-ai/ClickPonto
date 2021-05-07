@@ -4,9 +4,11 @@ import 'package:workhours/constants.dart';
 
 class Camposenha extends StatelessWidget {
   final ValueChanged<String> onChanged;
+  final TextEditingController controller;
   const Camposenha({
     Key key,
     this.onChanged,
+    this.controller
   }) : super(key: key);
 
   @override

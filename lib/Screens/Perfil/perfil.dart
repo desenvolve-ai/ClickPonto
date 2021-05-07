@@ -24,8 +24,7 @@ class _PerfilState extends State<Perfil> {
           border: InputBorder.none,
         ),
       ),
-      ),
-          
+      ),          
         ],),
       ),
 
