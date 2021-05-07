@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:workhours/Screens/Login/login_screen.dart';
+import 'package:workhours/Screens/Perfil/perfil.dart';
 import 'package:workhours/Screens/Welcome/welcome_screen.dart';
 import 'Screens/BottomNavigator/bottomNavBar.dart';
 import 'Screens/Sobre/sobre.dart';
@@ -19,6 +20,7 @@ void main() {
       '/home': (context) => BottomNavBar(),
       '/sobre': (context) => Sobre(),
       '/login': (context) => LoginScreen(),
+      '/perfil': (context) => Perfil(),
     },
   ));
 }

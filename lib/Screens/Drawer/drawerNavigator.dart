@@ -52,7 +52,10 @@ class MainDrawer extends StatelessWidget {
                 fontSize: 18,
                 ),
                 ),
-                onTap: null,
+                onTap: (){
+                  Navigator.pop(context);
+                   Navigator.pushNamed(context, '/perfil');
+                },
           ),
           ListTile(
             leading: Icon(Icons.settings),
