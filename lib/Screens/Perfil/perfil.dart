@@ -11,8 +11,8 @@ class _PerfilState extends State<Perfil> {
     return Scaffold(
       body: Container(
         child: Column(children: [
-          Container(child: ,),
-          Container(child: ,),
+          //Container(child: ,),
+          //Container(child: ,),
         ],),
       ),
 
