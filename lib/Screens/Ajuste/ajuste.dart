@@ -87,7 +87,7 @@ class _AjusteState extends State<Ajuste> {
                       groupValue: _motivo,
                       onChanged: (value) {
                         setState(() {
-                          _motivo = value;
+                          _motivo = value!;
                         });
                       },
                     ),
@@ -97,7 +97,7 @@ class _AjusteState extends State<Ajuste> {
                       groupValue: _motivo,
                       onChanged: (value) {
                         setState(() {
-                          _motivo = value;
+                          _motivo = value!;
                         });
                       },
                     ),

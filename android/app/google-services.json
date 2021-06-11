@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "705628626154",
+    "project_id": "clickponto-e241b",
+    "storage_bucket": "clickponto-e241b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705628626154:android:d995528a17fed3b6ebcb93",
+        "android_client_info": {
+          "package_name": "com.example.workhours"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "705628626154-ilhhp9a0r1c3l5joahtebuumqer9i4ur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPeHhl4PvP4BIL0S0wRE-kuiwGwhwKJVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "705628626154-ilhhp9a0r1c3l5joahtebuumqer9i4ur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

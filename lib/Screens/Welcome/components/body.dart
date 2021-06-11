@@ -20,21 +20,21 @@ class Body extends StatelessWidget {
               "Bem vindo ao Click Ponto!",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: size.height * 0.05),                               
+            SizedBox(height: size.height * 0.05),
 /*             SvgPicture.asset(
               "assets/icons/chat.svg",
               height: size.height * 0.45,
             ), */
             Center(
-              child: CircleAvatar(
+                child: CircleAvatar(
               radius: size.height * 0.20,
               backgroundImage: AssetImage('/images/Clickponto.jpg'),
-              )
-            ) ,
+            )),
             SizedBox(height: size.height * 0.05),
             Botao(
               text: "Entrar",
               press: () {
+                debugPrint("teste");
                 Navigator.push(
                   context,
                   MaterialPageRoute(
