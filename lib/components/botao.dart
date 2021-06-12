@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:workhours/constants.dart';
 
 class Botao extends StatelessWidget {
-  final String text;
-  final Function press;
+  final String? text;
+  final Function? press;
   final Color color, textColor;
   const Botao({
-    Key key,
+    Key? key,
     this.text,
     this.press,
     this.color = cor1,
@@ -22,25 +22,20 @@ class Botao extends StatelessWidget {
       height: size.height * 0.06,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
-        child: ElevatedButton( 
+        child: ElevatedButton(
           //padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
           //color: color,
-          onPressed: press,
+          onPressed: () => {},
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {
-                if (states.contains(MaterialState.pressed))
-                  return Colors.green;
+                if (states.contains(MaterialState.pressed)) return Colors.green;
                 return color; // Use the component's default.
               },
-            ),            
-          ), 
-          child: Text(
-            text,
-            style: TextStyle(color: textColor)
+            ),
           ),
+          child: Text(text!, style: TextStyle(color: textColor)),
         ),
-        
       ),
     );
   }

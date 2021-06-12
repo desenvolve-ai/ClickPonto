@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:workhours/constants.dart';
 
 class Campotextogeral extends StatelessWidget {
-  final Widget child;
+  final Widget ?child;
   const Campotextogeral({
-    Key key,
+    Key ?key,
     this.child,
   }) : super(key: key);
 

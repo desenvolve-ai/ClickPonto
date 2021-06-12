@@ -8,7 +8,7 @@ class Perfil extends StatefulWidget {
 
 class _PerfilState extends State<Perfil> {
   @override
-  DateTime _dtNascimento;
+  DateTime ?_dtNascimento;
 
   Widget build(BuildContext context) {
     

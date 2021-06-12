@@ -3,12 +3,12 @@ import 'package:workhours/components/campotextogeral.dart';
 import 'package:workhours/constants.dart';
 
 class Campoemail extends StatelessWidget {
-  final String hintText;
-  final IconData icon;
-  final ValueChanged<String> onChanged;
-  final TextEditingController controller;
+  final String ?hintText;
+  final IconData ?icon;
+  final ValueChanged<String> ?onChanged;
+  final TextEditingController ?controller;
   const Campoemail({
-    Key key,
+    Key ?key,
     this.hintText,
     this.icon = Icons.person,
     this.onChanged,
