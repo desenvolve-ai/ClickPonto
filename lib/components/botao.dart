@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workhours/constants.dart';
+import 'package:clickponto/constants.dart';
 
 class Botao extends StatelessWidget {
   final String? text;
@@ -25,7 +25,7 @@ class Botao extends StatelessWidget {
         child: ElevatedButton(
           //padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
           //color: color,
-          onPressed: () => {},
+          onPressed: press as void Function()?,
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith<Color>(
               (Set<MaterialState> states) {

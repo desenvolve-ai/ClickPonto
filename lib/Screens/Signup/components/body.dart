@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:workhours/Screens/Login/login_screen.dart';
-import 'package:workhours/Screens/Signup/components/background.dart';
-import 'package:workhours/Screens/Signup/components/or_divider.dart';
-import 'package:workhours/Screens/Signup/components/social_icon.dart';
-import 'package:workhours/components/jacadastrado.dart';
-import 'package:workhours/components/botao.dart';
-import 'package:workhours/components/campoemail.dart';
-import 'package:workhours/components/camposenha.dart';
+import 'package:clickponto/Screens/Login/login_screen.dart';
+import 'package:clickponto/Screens/Signup/components/background.dart';
+import 'package:clickponto/Screens/Signup/components/or_divider.dart';
+import 'package:clickponto/Screens/Signup/components/social_icon.dart';
+import 'package:clickponto/components/jacadastrado.dart';
+import 'package:clickponto/components/botao.dart';
+import 'package:clickponto/components/campoemail.dart';
+import 'package:clickponto/components/camposenha.dart';
 //import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
@@ -24,11 +24,10 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.03),
             Center(
-              child: CircleAvatar(
+                child: CircleAvatar(
               radius: size.height * 0.18,
               backgroundImage: AssetImage('images/Clickponto.jpg'),
-              )
-            ),
+            )),
             Campoemail(
               hintText: "Email",
               onChanged: (value) {},

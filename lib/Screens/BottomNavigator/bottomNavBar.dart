@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workhours/Screens/Ajuste/ajuste.dart';
-import 'package:workhours/Screens/Relatorio/relatorio.dart';
+import 'package:clickponto/Screens/Ajuste/ajuste.dart';
+import 'package:clickponto/Screens/Relatorio/relatorio.dart';
 
 import '../Drawer/drawerNavigator.dart';
 import '../Home/home.dart';
