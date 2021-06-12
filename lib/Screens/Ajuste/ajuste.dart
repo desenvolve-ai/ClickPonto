@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workhours/Screens/Drawer/drawerNavigator.dart';
+import 'package:clickponto/Screens/Drawer/drawerNavigator.dart';
 
 class Ajuste extends StatefulWidget {
   @override
@@ -9,7 +9,7 @@ class Ajuste extends StatefulWidget {
 enum Motivo { AtestadoMedico, Esquecimento }
 
 class _AjusteState extends State<Ajuste> {
-  Motivo _motivo = Motivo.AtestadoMedico;
+  Motivo? _motivo = Motivo.AtestadoMedico;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,7 +87,7 @@ class _AjusteState extends State<Ajuste> {
                       groupValue: _motivo,
                       onChanged: (value) {
                         setState(() {
-                          _motivo = value!;
+                          _motivo = value;
                         });
                       },
                     ),
@@ -97,7 +97,7 @@ class _AjusteState extends State<Ajuste> {
                       groupValue: _motivo,
                       onChanged: (value) {
                         setState(() {
-                          _motivo = value!;
+                          _motivo = value;
                         });
                       },
                     ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:workhours/Screens/Login/login_screen.dart';
-import 'package:workhours/Screens/Signup/signup_screen.dart';
-import 'package:workhours/Screens/Welcome/components/background.dart';
-import 'package:workhours/components/botao.dart';
-import 'package:workhours/constants.dart';
+import 'package:clickponto/Screens/Login/login_screen.dart';
+import 'package:clickponto/Screens/Signup/signup_screen.dart';
+import 'package:clickponto/Screens/Welcome/components/background.dart';
+import 'package:clickponto/components/botao.dart';
+import 'package:clickponto/constants.dart';
 //import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
@@ -50,6 +50,7 @@ class Body extends StatelessWidget {
               color: cor2,
               textColor: Colors.black,
               press: () {
+                debugPrint("teste");
                 Navigator.push(
                   context,
                   MaterialPageRoute(

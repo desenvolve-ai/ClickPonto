@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workhours/constants.dart';
+import 'package:clickponto/constants.dart';
 
 class OrDivider extends StatelessWidget {
   @override

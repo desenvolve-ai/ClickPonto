@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:workhours/Screens/Login/components/background.dart';
-import 'package:workhours/Screens/Signup/signup_screen.dart';
-import 'package:workhours/components/jacadastrado.dart';
-import 'package:workhours/components/botao.dart';
-import 'package:workhours/components/campoemail.dart';
-import 'package:workhours/components/camposenha.dart';
+import 'package:clickponto/Screens/Login/components/background.dart';
+import 'package:clickponto/Screens/Signup/signup_screen.dart';
+import 'package:clickponto/components/jacadastrado.dart';
+import 'package:clickponto/components/botao.dart';
+import 'package:clickponto/components/campoemail.dart';
+import 'package:clickponto/components/camposenha.dart';
 
 class Usuario {
   final String email;

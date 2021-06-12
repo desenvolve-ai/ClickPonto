@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:workhours/constants.dart';
+import 'package:clickponto/constants.dart';
 
 class Jacadastrado extends StatelessWidget {
   final bool login;
-  final Function ?press;
+  final Function? press;
   const Jacadastrado({
-    Key ?key,
+    Key? key,
     this.login = true,
     this.press,
   }) : super(key: key);
@@ -20,7 +20,7 @@ class Jacadastrado extends StatelessWidget {
           style: TextStyle(color: cor1),
         ),
         GestureDetector(
-          onTap: () => {},
+          onTap: press as void Function()?,
           child: Text(
             login ? "Cadastre-se" : "Entrar",
             style: TextStyle(

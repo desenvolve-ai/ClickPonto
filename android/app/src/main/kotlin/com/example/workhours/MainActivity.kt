@@ -1,4 +1,4 @@
-package com.example.workhours
+package com.example.clickponto
 
 import io.flutter.embedding.android.FlutterActivity
 

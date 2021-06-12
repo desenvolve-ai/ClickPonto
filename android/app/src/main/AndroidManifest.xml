@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.workhours">
+    package="com.example.clickponto">
    <application
-        android:label="workhours"
+        android:label="clickponto"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
