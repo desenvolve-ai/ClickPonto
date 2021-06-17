@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:clickponto/Screens/Login/components/background.dart';
 import 'package:clickponto/Screens/Signup/signup_screen.dart';
@@ -19,8 +20,33 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  var txtusuario = TextEditingController();
-  var txtsenha = TextEditingController();
+  var txtEmail = TextEditingController();
+  var txtSenha = TextEditingController();
+  bool isLoading = false;
+
+
+  void login(email,senha){
+
+    FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: email, 
+      password: senha,
+      )
+      .then((value){
+        isLoading = false;
+        Navigator.pushReplacementNamed(context,'/home');
+      }).catchError((erro){
+        debugPrint(erro.code);
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Email e/ou Senha inválidos!'),
+          duration: Duration(seconds: 2),
+          backgroundColor: Colors.greenAccent,
+        ));
+      }); 
+
+
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,26 +68,20 @@ class _BodyState extends State<Body> {
             )),
             SizedBox(height: size.height * 0.03),
             Campoemail(
-              hintText: "Usuário",
-              onChanged: (value1) {},
-              controller: txtusuario,
+              hintText: "E-mail",
+              onChanged: (_) {},
+              controller: txtEmail,
             ),
-            Camposenha(
-              onChanged: (value2) {},
-              controller: txtsenha,
+            Campoemail(
+              obscureText: true,
+              hintText: "Senha",
+              onChanged: (_) {},
+              controller: txtSenha,
             ),
             Botao(
               text: "Entrar",
               press: () {
-                if (txtusuario.text != '' || txtsenha.text != '') {
-                  Navigator.pop(context);
-                  Navigator.pushNamed(context, '/home');
-                } else
-                  (ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(' Usuario e senha devem ser preenchidos! '),
-                    duration: Duration(seconds: 3),
-                    backgroundColor: Colors.redAccent,
-                  )));
+                login(txtEmail.text, txtSenha.text);
               },
             ),
             SizedBox(height: size.height * 0.03),
