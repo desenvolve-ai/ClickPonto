@@ -64,4 +64,5 @@ dependencies {
     //Serviços que serão utilizados no App
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-auth'
 }

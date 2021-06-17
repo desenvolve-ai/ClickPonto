@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:clickponto/Screens/Signup/signup_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:clickponto/Screens/Login/login_screen.dart';
@@ -25,6 +27,7 @@ Future<void> main() async {
       '/home': (context) => BottomNavBar(),
       '/sobre': (context) => Sobre(),
       '/login': (context) => LoginScreen(),
+      '/cadastro': (context) => SignUpScreen(),
       '/perfil': (context) => Perfil(),
     },
   ));
