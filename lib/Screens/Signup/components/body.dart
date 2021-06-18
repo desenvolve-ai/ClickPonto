@@ -114,7 +114,7 @@ class _BodyState extends State<Body> {
             Botao(
               text: "Cadastrar",
               press: () {
-                criarConta(txtNome.text, txtCpf, txtEmail.text, txtSenha.text);
+                criarConta(txtNome.text, txtCpf.text, txtEmail.text, txtSenha.text);
               },
             ),
             SizedBox(height: size.height * 0.03),

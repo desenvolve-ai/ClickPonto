@@ -23,13 +23,13 @@ class _HomeState extends State<Home> {
     Ponto ponto = Ponto.fromJson(item.data(), item.id);
 
     print(ponto.endereco);
-    var date = DateTime.fromMicrosecondsSinceEpoch(ponto.dataHora.microsecondsSinceEpoch * 1);
+    var date = DateTime.fromMicrosecondsSinceEpoch(
+        ponto.dataHora.microsecondsSinceEpoch * 1);
     return Container(
         padding: EdgeInsets.all(5),
         child: Center(
           child: ListTile(
-            title: Text(date.toString(),
-                style: TextStyle(fontSize: 14)),
+            title: Text(date.toString(), style: TextStyle(fontSize: 14)),
             subtitle: Text(
               ponto.endereco,
               style: TextStyle(fontSize: 12),
@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
     print(id);
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text('Home')),
-      drawer: MainDrawer(id:id.toString()),
+      drawer: MainDrawer(id: id.toString()),
       body: Center(
         child: Column(
           children: [
@@ -98,6 +98,12 @@ class _HomeState extends State<Home> {
                                     Text('Deseja realmente registrar o ponto?'),
                                 actions: [
                                   TextButton(
+                                    child: Text('Cancelar'),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  TextButton(
                                     child: Text('Confirmar'),
                                     onPressed: () {
                                       var db = FirebaseFirestore.instance;
@@ -119,15 +125,8 @@ class _HomeState extends State<Home> {
                                       ));
                                     },
                                   ),
-                                  TextButton(
-                                    child: Text('Cancelar'),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                  ),
                                 ],
                                 elevation: 5,
-                                backgroundColor: Color(0xFFF1E6FF),
                               ),
                             );
                           },
@@ -148,7 +147,7 @@ class _HomeState extends State<Home> {
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.50,
-              width: MediaQuery.of(context).size.width * 0.40,
+              width: MediaQuery.of(context).size.width * 0.45,
               child: Center(
                 child: StreamBuilder<QuerySnapshot>(
                   stream: listaPontos.snapshots(),

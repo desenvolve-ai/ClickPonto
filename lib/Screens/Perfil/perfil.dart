@@ -26,12 +26,9 @@ class _PerfilState extends State<Perfil> {
 
   @override
   Widget build(BuildContext context) {
-
-    
     var id = ModalRoute.of(context)?.settings.arguments;
 
-    if (id != null)
-        getDocumentById(id.toString());
+    if (id != null) getDocumentById(id.toString());
 
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text('Perfil')),
@@ -89,6 +86,7 @@ class _PerfilState extends State<Perfil> {
                         onChanged: null,
                         cursorColor: null,
                         controller: txtEmail,
+                        enabled: false,
                         decoration: InputDecoration(
                           icon: Icon(
                             Icons.mail,
@@ -100,7 +98,7 @@ class _PerfilState extends State<Perfil> {
                         ),
                         keyboardType: TextInputType.emailAddress,
                       ),
-                      
+
                       // TextField(
                       //   onChanged: null,
                       //   cursorColor: null,
@@ -152,6 +150,13 @@ class _PerfilState extends State<Perfil> {
               padding: const EdgeInsets.only(bottom: 20),
               child: ElevatedButton.icon(
                 onPressed: () {
+                  var db = FirebaseFirestore.instance;
+
+                  db.collection('usuarios').doc(id.toString()).update({
+                    'nome': txtNome.text,
+                    'cpf': txtCpf.text,
+                  });
+
                   Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text('Perfil salvo com sucesso!'),

@@ -32,6 +32,7 @@ class _BodyState extends State<Body> {
       )
       .then((value){
         isLoading = false;
+        Navigator.pop(context);
         Navigator.pushReplacementNamed(context,'/home', arguments: value.user?.uid );
         
       }).catchError((erro){
@@ -39,7 +40,7 @@ class _BodyState extends State<Body> {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('Email e/ou Senha inválidos!'),
           duration: Duration(seconds: 2),
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Colors.redAccent,
         ));
       }); 
 
