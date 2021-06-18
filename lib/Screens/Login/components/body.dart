@@ -5,7 +5,6 @@ import 'package:clickponto/Screens/Signup/signup_screen.dart';
 import 'package:clickponto/components/jacadastrado.dart';
 import 'package:clickponto/components/botao.dart';
 import 'package:clickponto/components/campoemail.dart';
-import 'package:clickponto/components/camposenha.dart';
 
 class Usuario {
   final String email;
@@ -33,7 +32,8 @@ class _BodyState extends State<Body> {
       )
       .then((value){
         isLoading = false;
-        Navigator.pushReplacementNamed(context,'/home');
+        Navigator.pushReplacementNamed(context,'/home', arguments: value.user?.uid );
+        
       }).catchError((erro){
         debugPrint(erro.code);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:clickponto/Screens/Ajuste/ajuste.dart';
-import 'package:clickponto/Screens/Relatorio/relatorio.dart';
 
 import '../Drawer/drawerNavigator.dart';
 import '../Home/home.dart';

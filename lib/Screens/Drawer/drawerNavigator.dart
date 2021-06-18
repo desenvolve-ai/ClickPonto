@@ -1,8 +1,35 @@
+import 'dart:html';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class MainDrawer extends StatelessWidget {
+class MainDrawer extends StatefulWidget {
+  final String? id;
+  const MainDrawer({Key? key, this.id}) : super(key: key);
+
+  @override
+  _MainDrawerState createState() => _MainDrawerState();
+}
+
+class _MainDrawerState extends State<MainDrawer> {
+  var nome = 'Daniel Junio Barbosa';
+  var email = 'Daniel_Junio_@hotmail.com';
+
+  void getDocumentById(String id) async {
+    await FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(id)
+        .get()
+        .then((valor) {
+      nome = valor.get('nome');
+      email = valor.get('email');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    var id = ModalRoute.of(context)?.settings.arguments;
+
     return Drawer(
       child: Column(
         children: [
@@ -11,36 +38,32 @@ class MainDrawer extends StatelessWidget {
             padding: EdgeInsets.all(20),
             color: Theme.of(context).primaryColor,
             child: Center(
-              child: Column(children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  margin: EdgeInsets.only(
-                    top: 30,
-                    bottom: 10,
-                  ),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(image: NetworkImage('https://static1.purepeople.com.br/articles/4/30/94/04/@/3499253-neymar-faz-gol-e-comemoracao-agita-shipp-624x600-2.jpg'
+              child: Column(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    margin: EdgeInsets.only(
+                      top: 30,
+                      bottom: 10,
                     ),
-                    fit: BoxFit.fill
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              'https://static1.purepeople.com.br/articles/4/30/94/04/@/3499253-neymar-faz-gol-e-comemoracao-agita-shipp-624x600-2.jpg'),
+                          fit: BoxFit.fill),
                     ),
                   ),
-                ),
-                Text(
-                  'Daniel Junio Barbosa',
-                   style: TextStyle(
-                     fontSize: 22,
-                     color: Colors.white
-                     ),
-                     ),
                   Text(
-              'Daniel.barbosa@gmail.com',
-                style: TextStyle(
-                  color: Colors.white
+                    nome,
+                    style: TextStyle(fontSize: 22, color: Colors.white),
                   ),
+                  Text(
+                    email,
+                    style: TextStyle(color: Colors.white),
                   ),
-              ],
+                ],
               ),
             ),
           ),
@@ -50,12 +73,12 @@ class MainDrawer extends StatelessWidget {
               'Perfil',
               style: TextStyle(
                 fontSize: 18,
-                ),
-                ),
-                onTap: (){
-                  Navigator.pop(context);
-                   Navigator.pushNamed(context, '/perfil');
-                },
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/perfil', arguments: id);
+            },
           ),
           // ListTile(
           //   leading: Icon(Icons.settings),
@@ -67,18 +90,18 @@ class MainDrawer extends StatelessWidget {
           //       ),
           //       onTap: null,
           // ),
-           ListTile(
+          ListTile(
             leading: Icon(Icons.book),
             title: Text(
               'Sobre',
               style: TextStyle(
                 fontSize: 18,
-                ),
-                ),
-                onTap: (){
-                  Navigator.pop(context);
-                   Navigator.pushNamed(context, '/sobre');
-                },
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/sobre');
+            },
           ),
           ListTile(
             leading: Icon(Icons.arrow_back),
@@ -86,16 +109,15 @@ class MainDrawer extends StatelessWidget {
               'Sair',
               style: TextStyle(
                 fontSize: 18,
-                ),
-                ),
-                onTap: (){
-                  Navigator.pop(context);
-                   Navigator.pushNamed(context, '/login');
-                },
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/login');
+            },
           ),
         ],
       ),
-      
     );
   }
 }

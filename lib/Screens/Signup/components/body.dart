@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +7,6 @@ import 'package:clickponto/Screens/Signup/components/social_icon.dart';
 import 'package:clickponto/components/jacadastrado.dart';
 import 'package:clickponto/components/botao.dart';
 import 'package:clickponto/components/campoemail.dart';
-import 'package:clickponto/components/camposenha.dart';
 //import 'package:flutter_svg/svg.dart';
 
 class Body extends StatefulWidget {
@@ -25,6 +22,7 @@ class _BodyState extends State<Body> {
   var txtNome = TextEditingController();
   var txtEmail = TextEditingController();
   var txtSenha = TextEditingController();
+  var txtCpf  = TextEditingController();
 
   @override
   void initState() {
@@ -32,7 +30,7 @@ class _BodyState extends State<Body> {
     usuarios = FirebaseFirestore.instance.collection('usuarios');
   }
 
-  void criarConta(nome, email, senha) {
+  void criarConta(nome, cpf, email, senha) {
     FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: senha)
         .then((resultado) {
@@ -41,6 +39,7 @@ class _BodyState extends State<Body> {
 
       db.collection('usuarios').doc(resultado.user!.uid).set({
         'nome': nome,
+        'cpf': cpf,
         'email': email,
         'senha': senha,
       }).then((value) {
@@ -96,6 +95,12 @@ class _BodyState extends State<Body> {
               onChanged: (value) {},
             ),
             Campoemail(
+              obscureText: false,
+              controller: txtCpf,
+              hintText: "CPF",
+              onChanged: (value) {},
+            ),
+            Campoemail(
               controller: txtEmail,
               hintText: "Email",
               onChanged: (value) {},
@@ -109,7 +114,7 @@ class _BodyState extends State<Body> {
             Botao(
               text: "Cadastrar",
               press: () {
-                criarConta(txtNome.text, txtEmail.text, txtSenha.text);
+                criarConta(txtNome.text, txtCpf, txtEmail.text, txtSenha.text);
               },
             ),
             SizedBox(height: size.height * 0.03),

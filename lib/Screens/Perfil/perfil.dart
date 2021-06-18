@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,13 +8,31 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
-  @override
-  DateTime? _dtNascimento;
+  var txtNome = TextEditingController();
+  var txtEmail = TextEditingController();
+  var txtCpf = TextEditingController();
 
+  void getDocumentById(String id) async {
+    await FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(id)
+        .get()
+        .then((valor) {
+      txtNome.text = valor.get('nome');
+      txtEmail.text = valor.get('email');
+      txtCpf.text = valor.get('cpf');
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     
-    Size size = MediaQuery.of(context).size;
-    
+    var id = ModalRoute.of(context)?.settings.arguments;
+
+    if (id != null)
+        getDocumentById(id.toString());
+
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: Text('Perfil')),
       body: Container(
@@ -32,12 +51,13 @@ class _PerfilState extends State<Perfil> {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 40, bottom: 100 ),
+                  padding: const EdgeInsets.only(left: 40, bottom: 100),
                   child: Column(
                     children: [
                       TextField(
                         onChanged: null,
                         cursorColor: null,
+                        controller: txtNome,
                         decoration: InputDecoration(
                           icon: Icon(
                             Icons.people,
@@ -48,9 +68,27 @@ class _PerfilState extends State<Perfil> {
                           labelText: 'Nome',
                         ),
                       ),
+
                       TextField(
                         onChanged: null,
                         cursorColor: null,
+                        controller: txtCpf,
+                        decoration: InputDecoration(
+                          icon: Icon(
+                            Icons.people,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          hintText: 'Digite seu CPF',
+                          border: InputBorder.none,
+                          labelText: 'CPF',
+                        ),
+                        keyboardType: TextInputType.number,
+                      ),
+
+                      TextField(
+                        onChanged: null,
+                        cursorColor: null,
+                        controller: txtEmail,
                         decoration: InputDecoration(
                           icon: Icon(
                             Icons.mail,
@@ -62,79 +100,77 @@ class _PerfilState extends State<Perfil> {
                         ),
                         keyboardType: TextInputType.emailAddress,
                       ),
-                      TextField(
-                        onChanged: null,
-                        cursorColor: null,
-                        decoration: InputDecoration(
-                          icon: Icon(
-                            Icons.calendar_today,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          hintText: 'dd/MM/yyyy',
-                          border: InputBorder.none,
-                          labelText: 'Data Nascimento',
-                        ),
-                        keyboardType: TextInputType.datetime,
-                      ),
-                      TextField(
-                        onChanged: null,
-                        cursorColor: null,
-                        decoration: InputDecoration(
-                          icon: Icon(
-                            Icons.phone,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          hintText: 'Digite seu Telefone',
-                          border: InputBorder.none,
-                          labelText: 'Telefone',
-                        ),
-                        keyboardType: TextInputType.emailAddress,
-                      ),
-                      TextField(
-                        onChanged: null,
-                        cursorColor: null,
-                        decoration: InputDecoration(
-                          icon: Icon(
-                            Icons.people,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          hintText: 'Digite seu Gênero',
-                          border: InputBorder.none,
-                          labelText: 'Gênero',
-                        ),
-                        keyboardType: TextInputType.emailAddress,
-                      ),
+                      
+                      // TextField(
+                      //   onChanged: null,
+                      //   cursorColor: null,
+                      //   decoration: InputDecoration(
+                      //     icon: Icon(
+                      //       Icons.calendar_today,
+                      //       color: Theme.of(context).primaryColor,
+                      //     ),
+                      //     hintText: 'dd/MM/yyyy',
+                      //     border: InputBorder.none,
+                      //     labelText: 'Data Nascimento',
+                      //   ),
+                      //   keyboardType: TextInputType.datetime,
+                      // ),
+                      // TextField(
+                      //   onChanged: null,
+                      //   cursorColor: null,
+                      //   decoration: InputDecoration(
+                      //     icon: Icon(
+                      //       Icons.phone,
+                      //       color: Theme.of(context).primaryColor,
+                      //     ),
+                      //     hintText: 'Digite seu Telefone',
+                      //     border: InputBorder.none,
+                      //     labelText: 'Telefone',
+                      //   ),
+                      //   keyboardType: TextInputType.emailAddress,
+                      // ),
+                      // TextField(
+                      //   onChanged: null,
+                      //   cursorColor: null,
+                      //   decoration: InputDecoration(
+                      //     icon: Icon(
+                      //       Icons.people,
+                      //       color: Theme.of(context).primaryColor,
+                      //     ),
+                      //     hintText: 'Digite seu Gênero',
+                      //     border: InputBorder.none,
+                      //     labelText: 'Gênero',
+                      //   ),
+                      //   keyboardType: TextInputType.emailAddress,
+                      // ),
                     ],
                   ),
                 ),
-                
               ],
             ),
             Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text('Perfil salvo com sucesso!'),
-                        duration: Duration(seconds: 2),
-                        backgroundColor: Colors.green,
-                      ));
-                    },
-                    icon: Icon(Icons.save),
-                    label: Text('Salvar'),
-                     
-                    style: ElevatedButton.styleFrom(
-                      elevation: 20,
-                      minimumSize: Size(150, 50),
-                        shadowColor: Colors.black,
-                        primary: Theme.of(context).primaryColor,
-                        shape: RoundedRectangleBorder(
-                          
-                          borderRadius: BorderRadius.circular(20),
-                        )),
-                  ),
-                ),
+              padding: const EdgeInsets.only(bottom: 20),
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pop(context);
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('Perfil salvo com sucesso!'),
+                    duration: Duration(seconds: 2),
+                    backgroundColor: Colors.green,
+                  ));
+                },
+                icon: Icon(Icons.save),
+                label: Text('Salvar'),
+                style: ElevatedButton.styleFrom(
+                    elevation: 20,
+                    minimumSize: Size(150, 50),
+                    shadowColor: Colors.black,
+                    primary: Theme.of(context).primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    )),
+              ),
+            ),
           ],
         ),
       ),

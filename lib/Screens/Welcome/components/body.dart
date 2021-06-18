@@ -34,7 +34,6 @@ class Body extends StatelessWidget {
             Botao(
               text: "Entrar",
               press: () {
-                debugPrint("teste");
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -50,7 +49,6 @@ class Body extends StatelessWidget {
               color: cor2,
               textColor: Colors.black,
               press: () {
-                debugPrint("teste");
                 Navigator.push(
                   context,
                   MaterialPageRoute(
